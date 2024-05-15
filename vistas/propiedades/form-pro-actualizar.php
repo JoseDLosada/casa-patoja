@@ -48,7 +48,9 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="pro_descripcion"> Descripcion </label>
                           <div class="col-lg-10">
+
                             <textarea class="form-control" name="pro_descripcion" rows="3" placeholder="Descripcion general de la propiedad."><?=$propiedad->getPropiedad_descripcion()?></textarea>
+
                           </div>
                         </div>
 

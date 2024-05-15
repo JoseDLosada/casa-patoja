@@ -1,17 +1,17 @@
 <div class="content-wrapper">
     <div class="page-title">
         <div>
-        <h1>Propiedades</h1>
+        <h1>Lista de Ingresos</h1>
         <ul class="breadcrumb side">
             <li><i class="fa fa-home fa-lg"></i></li>
             <li>Tablas</li>
-            <li class="active"><a href="#">Propiedades</a></li>
+            <li class="active"><a href="#">Ingresos</a></li>
         </ul>
         </div>
         <div>
-            <a class="btn btn-primary btn-flat" href="?fControlador=propiedad&fAccion=FormPropiedad"><i class="fa fa-lg fa-plus"></i></a>
+            <a class="btn btn-primary btn-flat" href="?fControlador=ingreso&fAccion=FormIngreso"><i class="fa fa-lg fa-plus"></i></a>
 
-            <a class="btn btn-info btn-flat" href="?fControlador=propiedad"><i class="fa fa-lg fa-refresh"></i></a>
+            <a class="btn btn-info btn-flat" href="?fControlador=ingreso"><i class="fa fa-lg fa-refresh"></i></a>
         </div>
     </div>
     <div class="row">
@@ -34,7 +34,7 @@
                 <?php foreach($this->modeloIngreso->Listar() as $resultado):?>
                 <tr>
                     <td><?=$resultado->pagoAlq_id?></td>
-                    <td><?=$resultado->alquiler_id?></td>
+                    <td><?=$resultado->contrato_id?></td>
                     <td><?=$resultado->pagoAlq_fecha?></td>
                     <td><?=$resultado->pagoAlq_monto?></td>
                     <td><?=$resultado->pagoAlq_metodo?></td>
@@ -42,9 +42,9 @@
 
                     
                     <td>
-                        <a class="btn btn-success btn-flat" href="?fControlador=propiedad&fAccion=FormPropiedadActualizar&propiedad_direccion=<?=urlencode($resultado->propiedad_direccion)?>"><i class="fa fa-lg fa-pencil"></i></a>
+                        <a class="btn btn-success btn-flat" href="?fControlador=ingreso&fAccion=FormIngresoActualizar&pagoAlq_id=<?=urlencode($resultado->pagoAlq_id)?>"><i class="fa fa-lg fa-pencil"></i></a>
 
-                        <a class="btn btn-warning btn-flat" href="?fControlador=propiedad&fAccion=Eliminar&propiedad_direccion=<?=urlencode($resultado->propiedad_direccion)?>"><i class="fa fa-lg fa-trash"></i></a>
+                        <a class="btn btn-warning btn-flat" href="?fControlador=ingreso&fAccion=Eliminar&pagoAlq_id=<?=urlencode($resultado->pagoAlq_id)?>"><i class="fa fa-lg fa-trash"></i></a>
                         
                     </td>
                 </tr>

@@ -91,7 +91,9 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="g-descripcion">Descripcion</label>
                           <div class="col-lg-10">
-                            <textarea class="form-control" name="g-descripcion" rows="1"></textarea>
+
+                            <textarea class="form-control" name="g-descripcion" rows="1"><?=$gasto->getGasto_descripcion()?></textarea>
+
                           </div>
                         </div>
 

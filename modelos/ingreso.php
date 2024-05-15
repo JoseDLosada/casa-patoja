@@ -4,7 +4,7 @@ class Ingreso{
     private $pdo;
 
     private $pagoAlq_id;
-    private $alquiler_id;
+    private $contrato_id;
     private $pagoAlq_fecha;
     private $pagoAlq_monto;
     private $pagoAlq_metodo;
@@ -20,11 +20,11 @@ class Ingreso{
     public function setPagoAlq_id(int $pagoAlq_id) {
         $this->pagoAlq_id = $pagoAlq_id;
     }
-    public function getAlquiler_id() : ?int{
-        return $this->alquiler_id;
+    public function getContrato_id() : ?int{
+        return $this->contrato_id;
     }
-    public function setAlquiler_id(int $alquiler_id){
-        $this->alquiler_id = $alquiler_id;
+    public function setContrato_id(int $contrato_id){
+        $this->contrato_id = $contrato_id;
     }
     public function getPagoAlq_fecha(): ?DateTime {
         return $this->pagoAlq_fecha;
@@ -62,9 +62,9 @@ class Ingreso{
         }
     }
     
-    public function ListarAlquiler(){
+    public function ListarContrato(){
         try{
-            $consulta = $this->pdo->prepare("SELECT alquiler_id AS alquiler FROM pagos_alquiler;");
+            $consulta = $this->pdo->prepare("SELECT contrato_id AS contrato_id FROM contratos;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){
@@ -75,7 +75,7 @@ class Ingreso{
     public function Insertar(Ingreso $ingreso){
         try{
             $consulta = "INSERT INTO pagos_alquiler 
-                            (alquiler_id, 
+                            (contrato_id, 
                             pagoAlq_fecha, 
                             pagoAlq_monto, 
                             pagoAlq_metodo, 
@@ -83,11 +83,34 @@ class Ingreso{
                         VALUES (?, ?, ?, ?, ?)";
             $this->pdo->prepare($consulta)->
                     execute(array(
-                        $ingreso->getAlquiler_id(), 
+                        $ingreso->getContrato_id(), 
                         $ingreso->getPagoAlq_fecha()->format('Y-m-d'), 
                         $ingreso->getPagoAlq_monto(), 
                         $ingreso->getPagoAlq_metodo(), 
                         $ingreso->getPagoAlq_descripcion()
+                    ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Actualizar(Ingreso $ingreso){
+        try{
+            $consulta = "UPDATE pagos_alquiler SET 
+                            contrato_id = ?, 
+                            pagoAlq_fecha = ?, 
+                            pagoAlq_monto = ?, 
+                            pagoAlq_metodo = ?, 
+                            pagoAlq_descripcion = ? 
+                        WHERE pagoAlq_id = ?";
+            $this->pdo->prepare($consulta)->
+                    execute(array(
+                        $ingreso->getContrato_id(), 
+                        $ingreso->getPagoAlq_fecha()->format('Y-m-d'), 
+                        $ingreso->getPagoAlq_monto(), 
+                        $ingreso->getPagoAlq_metodo(), 
+                        $ingreso->getPagoAlq_descripcion(), 
+                        $ingreso->getPagoAlq_id()
                     ));
         }catch(Exception $e){
             die($e->getMessage());
@@ -103,7 +126,7 @@ class Ingreso{
             $resultado = $consulta->fetch(PDO::FETCH_OBJ);
             $ingreso = new Ingreso();
             $ingreso->setPagoAlq_id($resultado->pagoAlq_id);
-            $ingreso->setAlquiler_id($resultado->alquiler_id);
+            $ingreso->setContrato_id($resultado->contrato_id);
             $ingreso->setPagoAlq_fecha(new DateTime($resultado->pagoAlq_fecha));
             $ingreso->setPagoAlq_monto($resultado->pagoAlq_monto);
             $ingreso->setPagoAlq_metodo($resultado->pagoAlq_metodo);

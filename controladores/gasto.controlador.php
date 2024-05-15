@@ -38,7 +38,7 @@ class GastoControlador{
     
     public function FormGastoActualizar(){
         $titulo = "Actualizar Gasto";
-        $gasto = $this->modeloGasto->Obtener(urldecode($_GET['gasto_id']));
+        $gasto = $this->modeloGasto->Obtener( urldecode($_GET['gasto_id']));
         require_once 'vistas/encabezado.php';
         require_once "vistas/gastos/form-gasto-actualizar.php";
         require_once 'vistas/pie.php';

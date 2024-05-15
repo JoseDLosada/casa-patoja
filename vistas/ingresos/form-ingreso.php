@@ -1,7 +1,7 @@
 <div class="content-wrapper">
         <div class="page-title">
           <div>
-            <h1><i class="fa fa-edit"></i>Formulario Gastos</h1>
+            <h1><i class="fa fa-edit"></i>Formulario Ingresos</h1>
             <p><?=$titulo?></p>
           </div>
           <div>
@@ -18,7 +18,7 @@
               <div class="row">
                 <div class="col-lg-6">
                   <div class="well bs-component">
-                    <form class="form-horizontal" method="POST" action="?fControlador=ingreso&fAccion=GuardarIngreso">
+                    <form class="form-horizontal" method="POST" action="?fControlador=ingreso&fAccion=Guardaringreso">
 
                       <fieldset>
                         <legend><?=$titulo?></legend>
@@ -26,7 +26,7 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="i-id">ID</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="i-id" type="number" placeholder="ID Gasto" readonly value= "<?=$ingreso->getPagoAlq_id()?>" >
+                            <input class="form-control" name="i-id" type="number" placeholder="ID Ingreso" readonly>
                           </div>                 
                         </div>
 
@@ -48,7 +48,7 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="i-fecha">Fecha</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="i-fecha" type="date" value="<?= $ingreso->getPagoAlq_fecha()->format('Y-m-d') ?>">
+                            <input class="form-control" name="i-fecha" type="date" >
                           </div>
                         </div>
 
@@ -56,26 +56,25 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="i-monto">Monto</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="i-monto" type="number" placeholder="Valor del Gasto" value="<?=$ingreso->getPagoAlq_monto()?>">
+                            <input class="form-control" name="i-monto" type="number" placeholder="Valor del Gasto">
                           </div>                 
                         </div>
-
-                  
 
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="i-metodo">Metodo Pago</label>
                           <div class="col-lg-10">
                             <select class="form-control" name="i-metodo">
-                              <option value="Efectivo" <?= ($ingreso->getPagoAlq_metodo() == "Efectivo") ? "selected" : "" ?>>Efectivo</option>
-                              <option value="Transaccion" <?= ($ingreso->getPagoAlq_metodo() == "Transaccion") ? "selected" : "" ?>>Transaccion</option>
+                              <option>Efectivo</option>
+                              <option >Transaccion</option>
                             </select>               
                           </div>
                         </div>
-              
+
+                      
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="i-descripcion">Descripcion</label>
                           <div class="col-lg-10">
-                            <textarea class="form-control" name="i-descripcion" rows="1"><?=$ingreso->getPagoAlq_descripcion()?></textarea>
+                            <textarea class="form-control" name="i-descripcion" rows="1"></textarea>
                           </div>
                         </div>
 
