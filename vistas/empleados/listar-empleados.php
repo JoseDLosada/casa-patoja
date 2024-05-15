@@ -11,7 +11,7 @@
         <div>
             <a class="btn btn-primary btn-flat" href="?fControlador=empleado&fAccion=FormEmpleado"><i class="fa fa-lg fa-plus"></i></a>
 
-            <a class="btn btn-info btn-flat" href="?fControlador=propiedad"><i class="fa fa-lg fa-refresh"></i></a>
+            <a class="btn btn-info btn-flat" href="?fControlador=empleado"><i class="fa fa-lg fa-refresh"></i></a>
         </div>
     </div>
     <div class="row">
@@ -49,9 +49,9 @@
                     <td><?=$resultado->propiedad_direccion?></td>
                     
                     <td>
-                        <a class="btn btn-success btn-flat" href="?fControlador=propiedad&fAccion=FormPropiedadActualizar&propiedad_direccion=<?=urlencode($resultado->propiedad_direccion)?>"><i class="fa fa-lg fa-pencil"></i></a>
+                        <a class="btn btn-success btn-flat" href="?fControlador=empleado&fAccion=FormEmpleadoActualizar&empleado_cedula=<?=urlencode($resultado->empleado_cedula)?>"><i class="fa fa-lg fa-pencil"></i></a>
 
-                        <a class="btn btn-warning btn-flat" href="?fControlador=propiedad&fAccion=Eliminar&propiedad_direccion=<?=urlencode($resultado->propiedad_direccion)?>"><i class="fa fa-lg fa-trash"></i></a>
+                        <a class="btn btn-warning btn-flat" href="?fControlador=empleado&fAccion=Eliminar&empleado_cedula=<?=urlencode($resultado->empleado_cedula)?>"><i class="fa fa-lg fa-trash"></i></a>
                         
                     </td>
                 </tr>

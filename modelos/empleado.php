@@ -51,7 +51,7 @@ class Empleado{
     public function getEmpleado_codigo_salud() : ?string{
         return $this->empleado_codigo_salud;
     }
-    public function setEmpleado_codigo_salud(string $empleado_codigo_salud){
+    public function setEmpleado_codigo_salud(?string $empleado_codigo_salud){
         $this->empleado_codigo_salud = $empleado_codigo_salud;
     }
     public function getEmpleado_tipo() : ?string{
@@ -78,6 +78,108 @@ class Empleado{
             $consulta = $this->pdo->prepare("SELECT * FROM empleados");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Insertar(Empleado $empleado){
+        try{
+            $consulta = "INSERT INTO empleados(
+                            empleado_cedula, 
+                            empleado_nombre, 
+                            empleado_apellido, 
+                            empleado_direccion, 
+                            empleado_telefono, 
+                            empleado_codigo_salud, 
+                            empleado_tipo, 
+                            empleado_salario, 
+                            propiedad_direccion) 
+                            VALUES (?,?,?,?,?,?,?,?,?)";
+            $this->pdo->prepare($consulta)
+                            ->execute(
+                                array(
+                                    $empleado->getEmpleado_cedula(), 
+                                    $empleado->getEmpleado_nombre(), 
+                                    $empleado->getEmpleado_apellido(), 
+                                    $empleado->getEmpleado_direccion(), 
+                                    $empleado->getEmpleado_telefono(), 
+                                    $empleado->getEmpleado_codigo_salud(), 
+                                    $empleado->getEmpleado_tipo(), 
+                                    $empleado->getEmpleado_salario(), 
+                                    $empleado->getPropiedad_direccion()
+                                ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Actualizar(Empleado $empleado){
+        try{
+            $consulta = "UPDATE empleados SET 
+                            empleado_nombre = ?, 
+                            empleado_apellido = ?, 
+                            empleado_direccion = ?, 
+                            empleado_telefono = ?, 
+                            empleado_codigo_salud = ?, 
+                            empleado_tipo = ?, 
+                            empleado_salario = ?, 
+                            propiedad_direccion = ? 
+                            WHERE empleado_cedula = ?";
+            $this->pdo->prepare($consulta)
+                            ->execute(
+                                array(
+                                    $empleado->getEmpleado_nombre(), 
+                                    $empleado->getEmpleado_apellido(), 
+                                    $empleado->getEmpleado_direccion(), 
+                                    $empleado->getEmpleado_telefono(), 
+                                    $empleado->getEmpleado_codigo_salud(), 
+                                    $empleado->getEmpleado_tipo(), 
+                                    $empleado->getEmpleado_salario(), 
+                                    $empleado->getPropiedad_direccion(), 
+                                    $empleado->getEmpleado_cedula()
+                                ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Eliminar($empleado_cedula){
+        try{
+            $consulta = $this->pdo->prepare("DELETE FROM empleados WHERE empleado_cedula = ?;");
+            $consulta->execute(array($empleado_cedula));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+
+    public function ListarDireccion(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT propiedad_direccion AS direccion FROM propiedades;");
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Obtener($empleado_cedula){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM empleados WHERE empleado_cedula = ?;");
+            $consulta->execute(array($empleado_cedula));
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
+            $empleado = new Empleado();
+            $empleado->setEmpleado_cedula($resultado->empleado_cedula);
+            $empleado->setEmpleado_nombre($resultado->empleado_nombre);
+            $empleado->setEmpleado_apellido($resultado->empleado_apellido);
+            $empleado->setEmpleado_direccion($resultado->empleado_direccion);
+            $empleado->setEmpleado_telefono($resultado->empleado_telefono);
+            $empleado->setEmpleado_codigo_salud($resultado->empleado_codigo_salud);
+            $empleado->setEmpleado_tipo($resultado->empleado_tipo);
+            $empleado->setEmpleado_salario($resultado->empleado_salario);
+            $empleado->setPropiedad_direccion($resultado->propiedad_direccion);
+            return $empleado;
         }catch(Exception $e){
             die($e->getMessage());
         }

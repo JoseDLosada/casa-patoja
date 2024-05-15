@@ -62,6 +62,7 @@ class PropiedadControlador{
         $propiedad->setPropiedad_barrio($_POST['pro_barrio']);
         $propiedad->setPropiedad_numero_habitaciones($_POST['pro_habitaciones']);
         $propiedad->setPropiedad_descripcion($_POST['pro_descripcion']);
+        
         $this->modelo->Actualizar($propiedad);
         header('Location: ?fControlador=propiedad');
     }
