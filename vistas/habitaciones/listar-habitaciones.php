@@ -9,9 +9,9 @@
         </ul>
         </div>
         <div>
-            <a class="btn btn-primary btn-flat" href="?fControlador=propiedad&fAccion=FormHabitacion"><i class="fa fa-lg fa-plus"></i></a>
+            <a class="btn btn-primary btn-flat" href="?fControlador=habitacion&fAccion=FormHabitacion"><i class="fa fa-lg fa-plus"></i></a>
 
-            <a class="btn btn-info btn-flat" href="?fControlador=propiedad"><i class="fa fa-lg fa-refresh"></i></a>
+            <a class="btn btn-info btn-flat" href="?fControlador=habitacion"><i class="fa fa-lg fa-refresh"></i></a>
         </div>
     </div>
     <div class="row">
@@ -42,9 +42,9 @@
                     <td><?=$resultado->habitacion_tamanio?></td>
                     <td><?=$resultado->habitacion_amueblada?></td>
                     <td>
-                        <a class="btn btn-success btn-flat" href=""><i class="fa fa-lg fa-pencil"></i></a>
+                        <a class="btn btn-success btn-flat" href="?fControlador=habitacion&fAccion=FormActulizarHabitacion&propiedad_direccion=<?=urlencode($resultado->propiedad_direccion)?>&habitacion_numero=<?=urlencode($resultado->habitacion_numero)?>"><i class="fa fa-lg fa-pencil"></i></a>
 
-                        <a class="btn btn-warning btn-flat" href=""><i class="fa fa-lg fa-trash"></i></a>
+                        <a class="btn btn-warning btn-flat" href="?fControlador=habitacion&fAccion=EliminarHabitacion&propiedad_direccion=<?=urlencode($resultado->propiedad_direccion)?>&habitacion_numero=<?=urlencode($resultado->habitacion_numero)?>"><i class="fa fa-lg fa-trash"></i></a>
                         
                     </td>
                 </tr>

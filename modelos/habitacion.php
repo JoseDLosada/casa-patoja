@@ -48,10 +48,10 @@ class Habitacion{
     public function setHabitacion_banio_privado(string $habitacion_banio_privado){
         $this->habitacion_banio_privado = $habitacion_banio_privado;
     }
-    public function getHabitacion_tamanio() : ?int{
+    public function getHabitacion_tamanio() : ?string{
         return $this->habitacion_tamanio;
     }
-    public function setHabitacion_tamanio(int $habitacion_tamanio){
+    public function setHabitacion_tamanio(string $habitacion_tamanio){
         $this->habitacion_tamanio = $habitacion_tamanio;
     }
     public function getHabitacion_amueblada() : ?string{
@@ -67,6 +67,95 @@ class Habitacion{
             $consulta = $this->pdo->prepare("SELECT * FROM habitaciones;");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function ListarDireccion(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT propiedad_direccion AS direccion FROM propiedades;");
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function Obtener(string $propiedad_direccion, int $habitacion_numero){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM habitaciones 
+                                WHERE propiedad_direccion = ? AND habitacion_numero = ?;");
+            $consulta->execute(array($propiedad_direccion, $habitacion_numero));
+            $r = $consulta->fetch(PDO::FETCH_OBJ);
+            $habitacion = new Habitacion();
+            $habitacion->setPropiedad_direccion($r->propiedad_direccion);
+            $habitacion->setHabitacion_numero($r->habitacion_numero);
+            $habitacion->setHabitacion_disponibilidad($r->habitacion_disponibilidad);
+            $habitacion->setHabitacion_tarifa_alquiler($r->habitacion_tarifa_alquiler);
+            $habitacion->setHabitacion_banio_privado($r->habitacion_banio_privado);
+            $habitacion->setHabitacion_tamanio($r->habitacion_tamanio);
+            $habitacion->setHabitacion_amueblada($r->habitacion_amueblada);
+            return $habitacion;
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+
+    }
+
+    //Metodo para insertar una habitacion
+    public function Insertar(Habitacion $habitacion){
+        try{
+            $consulta = "INSERT INTO habitaciones (
+                                propiedad_direccion,
+                                habitacion_numero,
+                                habitacion_disponibilidad,
+                                habitacion_tarifa_alquiler,
+                                habitacion_banio_privado,
+                                habitacion_tamanio,
+                                habitacion_amueblada) 
+                                VALUES (?,?,?,?,?,?,?);";
+            $this->pdo->prepare($consulta)->
+                            execute(array(
+                                $habitacion->getPropiedad_direccion(),
+                                $habitacion->getHabitacion_numero(),
+                                $habitacion->getHabitacion_disponibilidad(),
+                                $habitacion->getHabitacion_tarifa_alquiler(),
+                                $habitacion->getHabitacion_banio_privado(),
+                                $habitacion->getHabitacion_tamanio(),
+                                $habitacion->getHabitacion_amueblada()));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+    public function Actualizar(Habitacion $habitacion){
+        try{
+            $consulta = "UPDATE habitaciones SET 
+                            habitacion_disponibilidad = ?,
+                            habitacion_tarifa_alquiler = ?,
+                            habitacion_banio_privado = ?,
+                            habitacion_tamanio = ?,
+                            habitacion_amueblada = ?
+                        WHERE propiedad_direccion = ? AND habitacion_numero = ?;";
+            $this->pdo->prepare($consulta)->execute(array(
+                $habitacion->getHabitacion_disponibilidad(),
+                $habitacion->getHabitacion_tarifa_alquiler(),
+                $habitacion->getHabitacion_banio_privado(),
+                $habitacion->getHabitacion_tamanio(),
+                $habitacion->getHabitacion_amueblada(),
+                $habitacion->getPropiedad_direccion(),
+                $habitacion->getHabitacion_numero()
+            ));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+
+    }
+
+    public function Eliminar(string $propiedad_direccion, int $habitacion_numero){
+        try{
+            $consulta = "DELETE FROM habitaciones WHERE propiedad_direccion = ? AND habitacion_numero = ?;";
+            $this->pdo->prepare($consulta)->execute(array($propiedad_direccion, $habitacion_numero));
         }catch(Exception $e){
             die($e->getMessage());
         }
