@@ -34,7 +34,7 @@
                     <div class="form-group">
                       <label class="col-lg-2 control-label" for="hab-numero">Numero Habitación</label>
                       <div class="col-lg-10">
-                        <input class="form-control" name="hab-numero" type="number" placeholder="0" value="<?=$habitacion->getHabitacion_numero()?>" readonly>
+                        <input class="form-control" name="hab-numero" type="text" placeholder="0" value="<?=$habitacion->getHabitacion_numero()?>" readonly>
                       </div>                 
                     </div>
                     

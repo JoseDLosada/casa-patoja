@@ -63,12 +63,12 @@
             <li class="treeview"><a href="#"><i class="fa fa-laptop"></i><span>Bases de Datos</span><i class="fa fa-angle-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="?fControlador=propiedad"><i class="fa fa-circle-o"></i> Propiedades </a></li>
-                <li><a href="?fControlador=gasto"><i class="fa fa-circle-o"></i> Gastos de la Propiedad </a></li>
-                <li><a href="?fControlador=ingreso"><i class="fa fa-circle-o"></i> Ingresos de la Propiedad </a></li>
-                <li><a href="?fControlador=empleado"><i class="fa fa-circle-o"></i>Empleados</a></li>
                 <li><a href="?fControlador=habitacion"><i class="fa fa-circle-o"></i>Habitaciones</a></li>
+                <li><a href="?fControlador=empleado"><i class="fa fa-circle-o"></i>Empleados</a></li>
                 <li><a href="?fControlador=arrendatario"><i class="fa fa-circle-o"></i>Arrendatarios</a></li>
                 <li><a href="?fControlador=contrato"><i class="fa fa-circle-o"></i>Contratos de Alquiler</a></li>
+                <li><a href="?fControlador=gasto"><i class="fa fa-circle-o"></i>Gastos de la Propiedad</a></li>
+                <li><a href="?fControlador=ingreso"><i class="fa fa-circle-o"></i>Ingresos de la Propiedad</a></li>
               </ul>
             </li>
             <li><a href="charts.html"><i class="fa fa-pie-chart"></i><span>Flujo de Caja</span></a></li>

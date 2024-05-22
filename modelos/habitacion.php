@@ -24,10 +24,10 @@ class Habitacion{
     public function setPropiedad_direccion(string $propiedad_direccion){
         $this->propiedad_direccion = $propiedad_direccion;
     }
-    public function getHabitacion_numero() : ?int{
+    public function getHabitacion_numero() : ?string{
         return $this->habitacion_numero;
     }
-    public function setHabitacion_numero(int $habitacion_numero) {
+    public function setHabitacion_numero(string $habitacion_numero) {
         $this->habitacion_numero = $habitacion_numero;
     }
     public function getHabitacion_disponibilidad() : ?string{
@@ -82,7 +82,7 @@ class Habitacion{
         }
     }
 
-    public function Obtener(string $propiedad_direccion, int $habitacion_numero){
+    public function Obtener(string $propiedad_direccion, string $habitacion_numero){
         try{
             $consulta = $this->pdo->prepare("SELECT * FROM habitaciones 
                                 WHERE propiedad_direccion = ? AND habitacion_numero = ?;");
@@ -152,7 +152,7 @@ class Habitacion{
 
     }
 
-    public function Eliminar(string $propiedad_direccion, int $habitacion_numero){
+    public function Eliminar(string $propiedad_direccion, string $habitacion_numero){
         try{
             $consulta = "DELETE FROM habitaciones WHERE propiedad_direccion = ? AND habitacion_numero = ?;";
             $this->pdo->prepare($consulta)->execute(array($propiedad_direccion, $habitacion_numero));

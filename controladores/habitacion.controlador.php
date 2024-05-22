@@ -38,7 +38,7 @@ class HabitacionControlador{
     public function GuardarHabitacion(){
         $habitacion = new Habitacion();
         $habitacion->setPropiedad_direccion($_POST['hab-prodiedad']);
-        $habitacion->setHabitacion_numero(intval($_POST['hab-numero']));
+        $habitacion->setHabitacion_numero($_POST['hab-numero']);
         $habitacion->setHabitacion_disponibilidad($_POST['hab-disponibilidad']);
         $habitacion->setHabitacion_tarifa_alquiler(intval($_POST['hab-tarifa']));
         $habitacion->setHabitacion_banio_privado($_POST['hab-banio']);
@@ -52,7 +52,7 @@ class HabitacionControlador{
     public function ActualizarHabitacion(){
         $habitacion = new Habitacion();
         $habitacion->setPropiedad_direccion($_POST['hab-prodiedad']);
-        $habitacion->setHabitacion_numero(intval($_POST['hab-numero']));
+        $habitacion->setHabitacion_numero($_POST['hab-numero']);
         $habitacion->setHabitacion_disponibilidad($_POST['hab-disponibilidad']);
         $habitacion->setHabitacion_tarifa_alquiler(intval($_POST['hab-tarifa']));
         $habitacion->setHabitacion_banio_privado($_POST['hab-banio']);
