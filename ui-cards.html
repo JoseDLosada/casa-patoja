@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS-->
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
-    <title>Casa Patoja</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>Vali Admin</title>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!--if lt IE 9
     script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
@@ -16,7 +16,7 @@
   <body class="sidebar-mini fixed">
     <div class="wrapper">
       <!-- Navbar-->
-      <header class="main-header hidden-print"><a class="logo" href="index.php">Casa Patoja</a>
+      <header class="main-header hidden-print"><a class="logo" href="index.html">Vali</a>
         <nav class="navbar navbar-static-top">
           <!-- Sidebar toggle button--><a class="sidebar-toggle" href="#" data-toggle="offcanvas"></a>
           <!-- Navbar Right Menu-->
@@ -51,27 +51,24 @@
       <aside class="main-sidebar hidden-print">
         <section class="sidebar">
           <div class="user-panel">
-            <div class="pull-left image"><img class="img-circle" src="assets/images/king-user.png" alt="User Image"></div>
+            <div class="pull-left image"><img class="img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image"></div>
             <div class="pull-left info">
-              <p>Jose Losada</p>
-              <p class="designation">Administrador</p>
+              <p>John Doe</p>
+              <p class="designation">Frontend Developer</p>
             </div>
           </div>
           <!-- Sidebar Menu-->
           <ul class="sidebar-menu">
-            <li class="active"><a href="index.php"><i class="fa fa-dashboard"></i><span>Panel Principal</span></a></li>
-            <li class="treeview"><a href="#"><i class="fa fa-laptop"></i><span>Bases de Datos</span><i class="fa fa-angle-right"></i></a>
+            <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
+            <li class="treeview"><a href="#"><i class="fa fa-laptop"></i><span>UI Elements</span><i class="fa fa-angle-right"></i></a>
               <ul class="treeview-menu">
-                <li><a href="?fControlador=propiedad"><i class="fa fa-circle-o"></i>Propiedades</a></li>
-                <li><a href="?fControlador=habitacion"><i class="fa fa-circle-o"></i>Habitaciones</a></li>
-                <li><a href="?fControlador=empleado"><i class="fa fa-circle-o"></i>Empleados</a></li>
-                <li><a href="?fControlador=arrendatario"><i class="fa fa-circle-o"></i>Arrendatarios</a></li>
-                <li><a href="?fControlador=contrato"><i class="fa fa-circle-o"></i>Contratos de Alquiler</a></li>
-                <li><a href="?fControlador=gasto"><i class="fa fa-circle-o"></i>Gastos de la Propiedad</a></li>
-                <li><a href="?fControlador=ingreso"><i class="fa fa-circle-o"></i>Ingresos de la Propiedad</a></li>
+                <li><a href="bootstrap-components.html"><i class="fa fa-circle-o"></i> Bootstrap Elements</a></li>
+                <li><a href="ui-font-awesome.html"><i class="fa fa-circle-o"></i> Font Icons</a></li>
+                <li><a href="ui-cards.html"><i class="fa fa-circle-o"></i> Cards</a></li>
+                <li><a href="widgets.html"><i class="fa fa-circle-o"></i> Widgets</a></li>
               </ul>
             </li>
-            <li><a href="charts.html"><i class="fa fa-pie-chart"></i><span>Flujo de Caja</span></a></li>
+            <li><a href="charts.html"><i class="fa fa-pie-chart"></i><span>Charts</span></a></li>
             <li class="treeview"><a href="#"><i class="fa fa-edit"></i><span>Forms</span><i class="fa fa-angle-right"></i></a>
               <ul class="treeview-menu">
                 <li><a href="form-components.html"><i class="fa fa-circle-o"></i> Form Components</a></li>
@@ -112,4 +109,83 @@
           </ul>
         </section>
       </aside>
-      
+      <div class="content-wrapper">
+        <div class="page-title">
+          <div>
+            <h1><i class="fa fa-laptop"></i> Cards</h1>
+            <p>New Componant to replace pannels</p>
+          </div>
+          <div>
+            <ul class="breadcrumb">
+              <li><i class="fa fa-home fa-lg"></i></li>
+              <li>UI</li>
+              <li><a href="#">Cards</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card">
+              <h3 class="card-title">Card Title</h3>
+              <div class="card-body">Hey there, I am a very simple card. I am good at containing small bits of information. I am quite convenient because I require little markup to use effectively.</div>
+              <div class="card-footer"><a class="btn btn-primary" href="#">Link</a></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-title-w-btn">
+                <h3 class="title">All Items</h3>
+                <p><a class="btn btn-primary icon-btn" href=""><i class="fa fa-plus"></i>Add Item	</a></p>
+              </div>
+              <div class="card-body">
+                <b>Card with action button </b><br>
+                Hey there, I am a very simple card. I am good at containing small bits of information. I am quite convenient because I require little markup to use effectively.
+                
+                
+              </div>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="card-title-w-btn">
+                <h3 class="title">All Items</h3>
+                <div class="btn-group"><a class="btn btn-primary" href="#"><i class="fa fa-lg fa-plus"></i></a><a class="btn btn-info" href="#"><i class="fa fa-lg fa-edit"></i></a><a class="btn btn-warning" href="#"><i class="fa fa-lg fa-trash"></i></a></div>
+              </div>
+              <div class="card-body">
+                <b>Card with button group </b><br>
+                Hey there, I am a very simple card. I am good at containing small bits of information. I am quite convenient because I require little markup to use effectively.
+                
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card">
+              <div class="overlay">
+                <div class="m-loader mr-20">
+                  <svg class="m-circular" viewBox="25 25 50 50">
+                  	<circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>
+                  </svg>
+                </div>
+                <h3 class="l-text">Loading</h3>
+              </div>
+              <div class="card-title-w-btn">
+                <h3 class="title">All Items</h3>
+                <p><a class="btn btn-primary icon-btn" href=""><i class="fa fa-plus"></i>Add Item	</a></p>
+              </div>
+              <div class="card-body">
+                <b>Card with action button </b><br>
+                Hey there, I am a very simple card. I am good at containing small bits of information. I am quite convenient because I require little markup to use effectively.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Javascripts-->
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/pace.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

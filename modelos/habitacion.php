@@ -161,6 +161,17 @@ class Habitacion{
         }
     }
 
+    //Metodo para mostrar el numero de habitaciones libres
+    public function MostrarNumeroHabitaciones(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT COUNT(*) AS numero_habitaciones FROM habitaciones WHERE habitacion_disponibilidad = 'Libre';");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
 
 
 }

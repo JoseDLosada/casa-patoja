@@ -149,11 +149,33 @@ class Propiedad{
     }
     public function FiltrarDireccion($direccion){
         try{
-            $consulta = $this->pdo->prepare("SELECT * FROM propiedades WHERE propiedad_direccion = ?;");
+            $consulta = $this->pdo->prepare("SELECT propiedad_direccion, propiedad_numero_habitaciones FROM propiedades WHERE propiedad_direccion = ?;");
             $consulta->execute(array($direccion));
-            return $consulta->fetch(PDO::FETCH_OBJ);
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){
             die($e->getMessage());
         }
     }
+
+        //consulta del numero de arrendatarios
+        public function MostrarNumeroArrendatarios(){
+            try{
+                $consulta = $this->pdo->prepare("SELECT COUNT(*) as numero_arrendatarios FROM arrendatarios");
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_OBJ);
+            }catch(Exception $e){
+                die($e->getMessage());
+            }
+        }
+
+        //consulta del numero de empleados
+        public function MostrarNumeroEmpleados(){
+            try{
+                $consulta = $this->pdo->prepare("SELECT COUNT(*) as numero_empleados FROM empleados");
+                $consulta->execute();
+                return $consulta->fetch(PDO::FETCH_OBJ);
+            }catch(Exception $e){
+                die($e->getMessage());
+            }
+        }
 }
