@@ -31,22 +31,30 @@
                           </div>
 
                           <div class="form-group">
-                              <label class="col-lg-2 control-label" for="ctn-arrendatario">Cedula Arrendatario</label>
+                              <label class="col-lg-2 control-label" for="cnt-arrendatario">Cedula Arrendatario</label>
                               <div class="col-lg-10">
-                                <input class="form-control" name="ctn-arrendatario" type="number" placeholder="ID Gasto" readonly value="<?=$contrato->getArrendatario_cedula()?>">
+                                <input class="form-control" name="cnt-arrendatario" type="number" placeholder="ID Gasto" readonly value="<?=$contrato->getArrendatario_cedula()?>">
                                                                            
                                 </div>
                             </div>
 
-                    
+                            <div class="form-group">
+                              <label class="col-lg-2 control-label" for="cnt-propiedad">Propiedad</label>
+                              <div class="col-lg-10">
+                                <input class="form-control" name="cnt-propiedad" type="text" placeholder="Numero Habitación" required value="<?=$contrato->getPropiedad_direccion()?>" readonly>              
+                              </div>
+                          </div>
 
-                          
+   
                       <div class="form-group">
                           <label class="col-lg-2 control-label" for="cnt-habitacion">Numero Habitación</label>
                           <div class="col-lg-10">
                              <input class="form-control" name="cnt-habitacion" type="text" placeholder="Numero Habitación" required value="<?=$contrato->getHabitacion_numero()?>" readonly>              
                           </div>
                       </div>
+
+                 
+
 
                          
                       

@@ -38,7 +38,9 @@
                                     // Iterar sobre las habitaciones disponibles
                                     foreach ($this->modeloIngreso->ListarContrato() as $resultado) {
                                         // Mostrar cada habitación disponible como una opción en el select
-                                        echo "<option>" . $resultado->contrato_id . "</option>";
+                                        //echo "<option>" . $resultado->contrato_id . "</option>";
+                                        echo "<option value='" . $resultado->contrato . "'>" . $resultado->contrato . " - " . $resultado->arrendatario . "</option>";
+
                                     }
                                     ?>
                             </select>               

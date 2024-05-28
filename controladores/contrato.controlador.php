@@ -35,7 +35,8 @@ class ContratoControlador{
     public function GuardarContrato(){
         $contrato = new Contrato();
         $contrato->setContrato_id(intval($_POST['cnt-id']));
-        $contrato->setArrendatario_cedula($_POST['ctn-arrendatario']);
+        $contrato->setArrendatario_cedula($_POST['cnt-arrendatario']);
+        $contrato->setPropiedad_direccion($_POST['cnt-propiedad']);
         $contrato->setHabitacion_numero($_POST['cnt-habitacion']);
         $contrato->setContrato_costo($_POST['cnt-costo']);
         $contrato->setContrato_fecha_inicio(new DateTime($_POST['cnt-fecha-inicio']));

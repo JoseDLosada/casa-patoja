@@ -45,7 +45,7 @@
                     <td>
                         <a class="btn btn-success btn-flat" href="?fControlador=contrato&fAccion=FormContratoActualizar&contrato_id=<?=urlencode($resultado->contrato_id)?>"><i class="fa fa-lg fa-pencil"></i></a>
 
-                        <a class="btn btn-warning btn-flat" href="?fControlador=contrato&fAccion=Eliminar&contrato_id=<?=urlencode($resultado->contrato_id)?>"><i class="fa fa-lg fa-trash"></i></a>
+                        <a class="btn btn-warning btn-flat" href="?fControlador=contrato&fAccion=Eliminar&contrato_id=<?=urlencode($resultado->contrato_id)?>" ><i class="fa fa-lg fa-trash" ></i></a>
                         
                     </td>
                 </tr>

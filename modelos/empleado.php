@@ -184,5 +184,16 @@ class Empleado{
             die($e->getMessage());
         }
     }
+    
 
+     //consulta del numero de empleados
+     public function MostrarNumeroEmpleados(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT COUNT(*) as numero_empleados FROM empleados");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
 }

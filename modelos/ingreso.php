@@ -64,7 +64,12 @@ class Ingreso{
     
     public function ListarContrato(){
         try{
-            $consulta = $this->pdo->prepare("SELECT contrato_id AS contrato_id FROM contratos;");
+            $consulta = $this->pdo->prepare("SELECT DISTINCT contrato_id AS contrato, 
+                                            concat(arrendatario_cedula,': ',arrendatario_nombre,' ',arrendatario_apellido) AS arrendatario,
+                                            contrato_estado
+                                            FROM contratos 
+                                            NATURAL JOIN arrendatarios
+                                            WHERE contrato_estado = 'Activo';");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){
@@ -141,6 +146,28 @@ class Ingreso{
         try{
             $consulta = $this->pdo->prepare("DELETE FROM pagos_alquiler WHERE pagoAlq_id = ?");
             $consulta->execute(array($pagoAlq_id));
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function ListarPagosMes(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM vista_pagos_alquiler_mes_actual;");
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+
+    public function MostrarTotalIngresosMes(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT SUM(monto) AS total_pagos FROM vista_pagos_alquiler_mes_actual;");
+            $consulta->execute();
+            $resultado = $consulta->fetch(PDO::FETCH_OBJ);
+            return $resultado;
         }catch(Exception $e){
             die($e->getMessage());
         }

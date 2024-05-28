@@ -37,7 +37,7 @@
                               <option>Servicios públicos</option>
                               <option >Mantenimiento</option>
                               <option>Compra insumos</option>
-                              <option>Pago Nomina</option>
+                              <option>Pagos</option>
                             </select>               
                           </div>
                         </div>

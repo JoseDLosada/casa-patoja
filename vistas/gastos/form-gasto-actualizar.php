@@ -37,7 +37,7 @@
                               <option value="Servicios públicos" <?= ($gasto->getGasto_categoria() == "Servicios públicos") ? "selected" : "" ?>>Servicios públicos</option>
                               <option value="Mantenimiento" <?= ($gasto->getGasto_categoria() == "Mantenimiento") ? "selected" : "" ?>>Mantenimiento</option>
                               <option value="Compra insumos" <?= ($gasto->getGasto_categoria() == "Compra insumos") ? "selected" : "" ?>>Compra insumos</option>
-                              <option value="Pago Nomina" <?= ($gasto->getGasto_categoria() == "Pago Nomina") ? "selected" : "" ?>>Pago Nomina</option>
+                              <option value="Pago Nomina" <?= ($gasto->getGasto_categoria() == "Pago Nomina") ? "selected" : "" ?>>Pagos</option>
                             </select>               
                           </div>
                         </div>

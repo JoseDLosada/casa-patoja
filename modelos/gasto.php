@@ -163,4 +163,41 @@ class Gasto{
         }
     }
 
+    public function ListarGastosMes(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT * FROM vista_gastos_mes_actual;");
+            $consulta->execute();
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function MostrarTotalGastosMes(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT SUM(monto) AS monto FROM vista_gastos_mes_actual;");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
+    public function FiltrarGastosPorMes($mes){
+        try{
+            $consulta = $this->pdo->prepare("SELECT 
+                        gasto_categoria as categoria, 
+                        gasto_monto as monto, 
+                        gasto_fecha as fecha, 
+                        dayname(gasto_fecha) as dia
+                        FROM gastos_propiedad
+                        WHERE month(gasto_fecha) = ?
+                        AND YEAR(gasto_fecha) = YEAR(CURRENT_DATE());");
+            $consulta->execute(array($mes));
+            return $consulta->fetchAll(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+
 }

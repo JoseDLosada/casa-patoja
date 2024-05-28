@@ -26,49 +26,49 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-cedula">Cedula Empleado</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="emp-cedula" type="number" placeholder="Cedula" >
+                            <input class="form-control" name="emp-cedula" type="number" placeholder="1061727647"  required>
                           </div>                 
                         </div>
 
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-nombre">Nombre Empleado</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="emp-nombre" type="text" placeholder="Nombre Empleado" >
+                            <input class="form-control" name="emp-nombre" type="text" placeholder="Juan"  required>
                           </div>                 
                         </div>
 
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-apellido">Apellido Empleado</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="emp-apellido" type="text" placeholder="Apellido Empleado" >
+                            <input class="form-control" name="emp-apellido" type="text" placeholder="Gómez"  required>
                           </div>                 
                         </div>
 
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-direccion">Direccion Empleado</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="emp-direccion" type="text" placeholder="Direccion Empleado" >
+                            <input class="form-control" name="emp-direccion" type="text" placeholder="Kr3"  required>
                           </div>                 
                         </div>
 
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-telefono">Telefono Empleado</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="emp-telefono" type="number" placeholder="Telefono Empleado" >
+                            <input class="form-control" name="emp-telefono" type="number" placeholder="300101010"  required>
                           </div>                 
                         </div>
 
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-codigo-salud">Codigo Salud Empleado</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="emp-codigo-salud" type="text" placeholder="Codigo Salud Empleado" >
+                            <input class="form-control" name="emp-codigo-salud" type="text" placeholder="AC20000"  required>
                           </div>                 
                         </div>
 
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-tipo">Tipo Empleado</label>
                           <div class="col-lg-10">
-                            <select class="form-control" name="emp-tipo">
+                            <select class="form-control" name="emp-tipo" required>
                               <option>Administrativo</option>
                               <option >Servicios Generales</option>
                               <option >Contratista</option>
@@ -79,7 +79,7 @@
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="emp-salario">Salario</label>
                           <div class="col-lg-10">
-                            <input class="form-control" name="emp-salario" type="number" placeholder="0">
+                            <input class="form-control" name="emp-salario" type="number" placeholder="0" required>
                           </div>                 
                         </div>
 

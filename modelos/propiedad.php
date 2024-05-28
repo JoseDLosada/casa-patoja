@@ -35,7 +35,7 @@ class Propiedad{
     public function getPropiedad_descripcion() : ?string{
         return $this->propiedad_descripcion;
     }
-    public function setPropiedad_descripcion(string $propiedad_descripcion){
+    public function setPropiedad_descripcion(?string $propiedad_descripcion){
         $this->propiedad_descripcion = $propiedad_descripcion;
     }
 
@@ -131,13 +131,14 @@ class Propiedad{
     //Metodos para presentar en cards
     public function MostrarNumeroHabitaciones(){
         try{
-            $consulta = $this->pdo->prepare("SELECT SUM(propiedad_numero_habitaciones) AS numero_habitaciones FROM propiedades;"); //Se prepara la consulta SQL para obtener el numero de habitaciones de la propiedad 
+            $consulta = $this->pdo->prepare("SELECT count(habitacion_numero) AS numero_habitaciones FROM  habitaciones;"); //Se prepara la consulta SQL para obtener el numero de habitaciones de la propiedad 
             $consulta->execute();//Se ejecuta la consulta SQL
             return $consulta->fetch(PDO::FETCH_OBJ);//Se retorna el resultado de la consulta SQL fetch() para obtener el resultado de la consulta y se especifica que se desea obtener un objeto
         }catch(Exception $e){
             die($e->getMessage());
         }
     }
+
     public function MostrarDireccion(){
         try{
             $consulta = $this->pdo->prepare("SELECT propiedad_direccion  FROM propiedades;");
@@ -149,7 +150,8 @@ class Propiedad{
     }
     public function FiltrarDireccion($direccion){
         try{
-            $consulta = $this->pdo->prepare("SELECT propiedad_direccion, propiedad_numero_habitaciones FROM propiedades WHERE propiedad_direccion = ?;");
+            $direccion = '%' . $direccion . '%'; 
+            $consulta = $this->pdo->prepare("SELECT propiedad_direccion, propiedad_numero_habitaciones FROM propiedades WHERE propiedad_direccion LIKE ?;");
             $consulta->execute(array($direccion));
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){
@@ -168,12 +170,49 @@ class Propiedad{
             }
         }
 
-        //consulta del numero de empleados
-        public function MostrarNumeroEmpleados(){
+       
+
+        public function ListarPropiedadHabitacionesLibres(){
             try{
-                $consulta = $this->pdo->prepare("SELECT COUNT(*) as numero_empleados FROM empleados");
+                $consulta = $this->pdo->prepare("SELECT * FROM vista_propiedades_disponibles;");
+                $consulta->execute();
+                return $consulta->fetchAll(PDO::FETCH_OBJ);
+            }catch(Exception $e){
+                die($e->getMessage());
+            }
+        }
+
+        public function BalanceToTalMes(){
+            try{
+                $consulta = $this->pdo->prepare("SELECT 
+                (SELECT IFNULL(SUM(pagoAlq_monto), 0) 
+                 FROM pagos_alquiler
+                 WHERE YEAR(pagoAlq_fecha) = YEAR(CURRENT_DATE()) 
+                   AND MONTH(pagoAlq_fecha) = MONTH(CURRENT_DATE())) 
+                - 
+                ((SELECT IFNULL(SUM(gasto_monto), 0) 
+                  FROM gastos_propiedad 
+                  WHERE YEAR(gasto_fecha) = YEAR(CURRENT_DATE()) 
+                    AND MONTH(gasto_fecha) = MONTH(CURRENT_DATE()))
+                 + 
+                 (SELECT IFNULL(SUM(nomina_pago), 0) 
+                  FROM nomina 
+                  WHERE YEAR(nomina_fecha) = YEAR(CURRENT_DATE()) 
+                    AND MONTH(nomina_fecha) = MONTH(CURRENT_DATE()))
+                ) AS total_balance;
+            ");
                 $consulta->execute();
                 return $consulta->fetch(PDO::FETCH_OBJ);
+            }catch(Exception $e){
+                die($e->getMessage());
+            }
+        }
+
+        public function ObtenerDirecciones(){
+            try{
+                $consulta = $this->pdo->prepare("SELECT propiedad_direccion FROM propiedades;");
+                $consulta->execute();
+                return $consulta->fetchAll(PDO::FETCH_OBJ);
             }catch(Exception $e){
                 die($e->getMessage());
             }

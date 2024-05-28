@@ -1,11 +1,11 @@
 <div class="content-wrapper">
     <div class="page-title">
         <div>
-        <h1>Propiedades</h1>
+        <h1>Habitaciones</h1>
         <ul class="breadcrumb side">
             <li><i class="fa fa-home fa-lg"></i></li>
             <li>Tablas</li>
-            <li class="active"><a href="#">Propiedades</a></li>
+            <li class="active"><a href="#">Habitaciones</a></li>
         </ul>
         </div>
         <div>

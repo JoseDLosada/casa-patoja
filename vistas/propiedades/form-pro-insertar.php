@@ -27,21 +27,21 @@
                         <div class="form-group">
                           <label  class="col-lg-2 control-label" for="pro_direccion"> Direccion </label>
                           <div class="col-lg-10">
-                            <input required class="form-control" name="pro_direccion" type="text" placeholder="Direccion">
+                            <input required class="form-control" name="pro_direccion" type="text" placeholder="Cll 5 # 3-26">
                           </div>
 
                         </div>
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="pro_barrio"> Barrio </label>
                           <div class="col-lg-10">
-                            <input required class="form-control" name="pro_barrio" type="text" placeholder="Barrio">
+                            <input required class="form-control" name="pro_barrio" type="text" placeholder="Centro">
                           </div>
 
                         </div>
                         <div class="form-group">
                           <label class="col-lg-2 control-label" for="pro_habitaciones"> Numero de Habitaciones </label>
                           <div class="col-lg-10">
-                            <input required class="form-control" name="pro_habitaciones" type="number" placeholder="Numero de habitaciones">
+                            <input required class="form-control" name="pro_habitaciones" type="number" placeholder="0">
                           </div>
                         </div>
 

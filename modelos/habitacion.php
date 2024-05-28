@@ -74,7 +74,16 @@ class Habitacion{
 
     public function ListarDireccion(){
         try{
-            $consulta = $this->pdo->prepare("SELECT propiedad_direccion AS direccion FROM propiedades;");
+            $consulta = $this->pdo->prepare("SELECT 
+                                            propiedad_direccion AS direccion
+                                        FROM 
+                                            propiedades 
+                                        NATURAL LEFT JOIN 
+                                            habitaciones
+                                            GROUP BY 
+                                            propiedad_direccion, propiedad_numero_habitaciones
+                                        HAVING 
+                                            propiedad_numero_habitaciones > COUNT(habitacion_numero);");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
         }catch(Exception $e){
@@ -165,6 +174,15 @@ class Habitacion{
     public function MostrarNumeroHabitaciones(){
         try{
             $consulta = $this->pdo->prepare("SELECT COUNT(*) AS numero_habitaciones FROM habitaciones WHERE habitacion_disponibilidad = 'Libre';");
+            $consulta->execute();
+            return $consulta->fetch(PDO::FETCH_OBJ);
+        }catch(Exception $e){
+            die($e->getMessage());
+        }
+    }
+    public function MostrarNumeroHabitacionesOcupadas(){
+        try{
+            $consulta = $this->pdo->prepare("SELECT COUNT(*) AS numero_habitaciones FROM habitaciones WHERE habitacion_disponibilidad = 'Ocupada';");
             $consulta->execute();
             return $consulta->fetch(PDO::FETCH_OBJ);
         }catch(Exception $e){

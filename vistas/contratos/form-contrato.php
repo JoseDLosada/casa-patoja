@@ -31,82 +31,95 @@
                           </div>
 
                           <div class="form-group">
-                              <label class="col-lg-2 control-label" for="ctn-arrendatario">Cedula Arrendatario</label>
+                              <label class="col-lg-2 control-label" for="cnt-arrendatario">Cedula Arrendatario</label>
                               <div class="col-lg-10">
-                                  <select class="form-control" name="ctn-arrendatario" required>
+                                  <select class="form-control" name="cnt-arrendatario" required>
                                       <?php
                                         // Iterar sobre las habitaciones disponibles
                                         foreach ($this->modeloContrato->ListarArrendatario() as $resultado) {
                                             // Mostrar cada habitación disponible como una opción en el select
-                                            echo "<option>" . $resultado->arrendatario_cedula . "</option>";
+                                            echo "<option value='" . $resultado->arrendatario_cedula . "'>" . $resultado->arrendatario_cedula . " - " . $resultado->nombre . "</option>";
+                                            //echo "<option>" . $resultado->arrendatario_cedula . "</option>";
                                           }
                                           ?>
                                     </select>               
                                 </div>
                             </div>
-
-                    
-
-                          
-                      <div class="form-group">
-                          <label class="col-lg-2 control-label" for="cnt-habitacion">Numero Habitación</label>
-                          <div class="col-lg-10">
+                            
+                            
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" for="cnt-propiedad">Propiedad</label>
+                            <div class="col-lg-10">
+                                <select class="form-control" name="cnt-propiedad" required>
+                                    <?php
+                                      // Iterar sobre las habitaciones disponibles
+                                      foreach ($this->modeloContrato->ListarPropiedadDisponible() as $resultado) {
+                                          // Mostrar cada habitación disponible como una opción en el select
+                                          echo "<option>" . $resultado->propiedad_direccion . "</option>";
+                                        }
+                                        ?>
+                                  </select>               
+                              </div>
+                          </div>
+                     
+                            <div class="form-group">
+                              <label class="col-lg-2 control-label" for="cnt-habitacion">Numero Habitación</label>
+                              <div class="col-lg-10">
                               <select class="form-control" name="cnt-habitacion" required>
                                   <?php
                                   
-                                    // Iterar sobre las habitaciones disponibles
-                                    foreach ($this->modeloContrato->ListarHabitacion() as $resultado) {
-                                        // Mostrar cada habitación disponible como una opción en el select
-                                        echo "<option>" . $resultado-> habitacion_numero ."</option>";
-                                      }
-                                      ?>
-                                      
-                              </select>               
-                          </div>
-                      </div>
-
-                         
+                                  // Iterar sobre las habitaciones disponibles
+                                  foreach ($this->modeloContrato->ListarHabitacion() as $resultado) {
+                                    // Mostrar cada habitación disponible como una opción en el select
+                                    echo "<option>" . $resultado-> habitacion_numero ."</option>";
+                                  }
+                                  ?>                                     
+                                    </select>               
+                                  </div>
+                                </div>
                       
-                      <div class="form-group">
-                        <label class="col-lg-2 control-label" for="cnt-costo">Costo Alquiler</label>
-                        <div class="col-lg-10">
-                          <input class="form-control" name="cnt-costo" type="number" placeholder="0" required>
-                        </div>                 
-                      </div>
-                    
-
-                      <div class="form-group">
-                        <label class="col-lg-2 control-label" for="cnt-fecha-inicio">Fecha Inicio</label>
-                        <div class="col-lg-10">
-                          <input class="form-control" name="cnt-fecha-inicio" type="date" required>
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <label class="col-lg-2 control-label" for="cnt-fecha-fin">Fecha Fin</label>
-                        <div class="col-lg-10">
-                          <input class="form-control" name="cnt-fecha-fin" type="date" >
-                        </div>
-                      </div>
-
                         <div class="form-group">
-                          <label class="col-lg-2 control-label" for="cnt-estado">Estado Contrato</label>
+                          <label class="col-lg-2 control-label" for="cnt-costo">Costo Alquiler</label>
                           <div class="col-lg-10">
-                            <select class="form-control" name="cnt-estado" required>
-                              <option>Activo</option>
-                              <option >Finalizado</option>
-                            </select>               
+                            <input class="form-control" name="cnt-costo" type="number" placeholder="0" required>
+                          </div>                 
+                        </div>
+                      
+
+                        <div class="form-group">
+                          <label class="col-lg-2 control-label" for="cnt-fecha-inicio">Fecha Inicio</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" name="cnt-fecha-inicio" type="date" required>
                           </div>
                         </div>
 
-
-
-                      
                         <div class="form-group">
-                          <div class="col-lg-10 col-lg-offset-2">
-                            <button class="btn btn-default" type="reset">Cancel</button>
-                            <button class="btn btn-primary" type="submit">Submit</button>
+                          <label class="col-lg-2 control-label" for="cnt-fecha-fin">Fecha Fin</label>
+                          <div class="col-lg-10">
+                            <input class="form-control" name="cnt-fecha-fin" type="date" value="">
                           </div>
+                        </div>
+
+                        
+
+                          <div class="form-group">
+                            <label class="col-lg-2 control-label" for="cnt-estado">Estado Contrato</label>
+                            <div class="col-lg-10">
+                              <select class="form-control" name="cnt-estado" required>
+                                <option>Activo</option>
+                                <option >Finalizado</option>
+                              </select>               
+                            </div>
+                          </div>
+
+
+
+                        
+                          <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                              <button class="btn btn-default" type="reset">Cancel</button>
+                              <button class="btn btn-primary" type="submit">Submit</button>
+                            </div>
                         </div>
                       </fieldset>
                     </form>
