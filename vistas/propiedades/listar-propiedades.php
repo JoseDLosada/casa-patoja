@@ -22,10 +22,10 @@
             <table class="table table-hover table-bordered" id="sampleTable">
                 <thead>
                 <tr>
-                    <th>Direccion</th>
+                    <th>Dirección</th>
                     <th>Barrio</th>
-                    <th>Numero de Habitaciones</th>
-                    <th>Descripcion</th>
+                    <th>Número de Habitaciones</th>
+                    <th>Descripción</th>
                     <th>Acciones</th>
                 </thead>
                 <tbody>

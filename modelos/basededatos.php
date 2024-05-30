@@ -7,7 +7,6 @@ class BasedeDatos{
     const PASSWORD = "";
     const BASEDEDATOS = "casa_patoja";
 
-
     //Metodo para conectar a la base de datos public y static para poder ser llamado desde cualquier parte del proyecto sin necesidad de instanciar la clase BasedeDatos
     public static function Conectar(){
         try{
@@ -23,6 +22,4 @@ class BasedeDatos{
         }
 
     }
-
-
 }

@@ -1,8 +1,15 @@
 <div class="content-wrapper">
+<?php
+    // Obtenemos el mes actual en español
+    setlocale(LC_TIME, 'es_ES.UTF-8');
+    $mesActual = date('F');
+    // Capitalizamos la primera letra
+    $mesActual = ucfirst($mesActual);
+  ?>
   <!-- Page Title -->
   <div class="page-title">
     <div>
-      <h1><i class="fa fa-dashboard"></i> Flujo de Caja 🤑</h1>
+      <h1><i class="fa fa-dashboard"></i> Flujo de Caja 💵</h1>
       <p>Información Administrativa de Casa Patoja</p>
     </div>
     <div>
@@ -19,7 +26,7 @@
       <div class="widget-small info">
         <i class="icon fa fa-money fa-3x"></i>
         <div class="info">
-          <h4>Total Ingresos Mes</h4>
+          <h4>Total Ingresos: <?php echo $mesActual; ?></h4>
           <p>
             <?php $ingreso = $this->modeloIngreso->MostrarTotalIngresosMes() ?>
             <?= $ingreso->total_pagos ?> $
@@ -32,7 +39,7 @@
       <div class="widget-small danger">
         <i class="icon fa fa-arrow-down fa-3x"></i>
         <div class="info">
-          <h4>Total Gastos Mes</h4>
+          <h4>Total Gastos: <?php echo $mesActual; ?></h4>
           <p>
             <?php $gasto = $this->modeloGasto->MostrarTotalGastosMes() ?>
             <?= $gasto->monto ?> $
@@ -46,7 +53,7 @@
       <div class="widget-small warning">
         <i class="icon fa fa-files-o fa-3x"></i>
         <div class="info">
-          <h4>Total Nomina Mes</h4>
+          <h4>Total Nómina: <?php echo $mesActual; ?></h4>
           <p>
             <?php $nomina = $this->modeloNomina->MostrarTotalNominaMes() ?>
             <?= $nomina->total ?> $
@@ -59,7 +66,7 @@
       <div class="widget-small primary">
         <i class="icon fa fa-bank fa-3x"></i>
         <div class="info">
-          <h4>Balance Mes</h4>
+          <h4>Balance Mes: <?php echo $mesActual; ?></h4>
           <p>
             <?php $balance = $this->modeloPropiedad->BalanceToTalMes() ?>
             <?= $balance->total_balance ?> $
@@ -73,7 +80,7 @@
 
     <div class="col-md-6">
       <div class="card">
-        <h3 class="card-title">Gastos Propiedad: Mes Actual</h3>
+        <h3 class="card-title">Gastos Propiedad: <?php echo $mesActual; ?></h3>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -101,7 +108,7 @@
 
     <div class="col-md-6">
       <div class="card">
-        <h3 class="card-title">Pagos Nomina: Mes Actual</h3>
+        <h3 class="card-title">Pagos Nómina: <?php echo $mesActual; ?></h3>
         <table class="table table-hover">
           <thead>
             <tr>
@@ -127,7 +134,7 @@
 
     <div class="col-md-6">
       <div class="card">
-        <h3 class="card-title">Pagos Arrendatarios: Mes Actual</h3>
+        <h3 class="card-title">Pagos Arrendatarios: <?php echo $mesActual; ?></h3>
         <table class="table table-hover">
           <thead>
             <tr>

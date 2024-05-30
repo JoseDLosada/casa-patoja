@@ -84,8 +84,10 @@
                           <label class="col-lg-2 control-label" for="cnt-estado">Estado Contrato</label>
                           <div class="col-lg-10">
                             <select class="form-control" name="cnt-estado" required>
-                              <option>Activo</option>
-                              <option >Finalizado</option>
+                              <!-- <option>Activo</option>
+                              <option >Finalizado</option> -->
+                              <option value="Activo" <?= ($contrato->getContrato_estado() == "Activo") ? "selected" : "" ?>>Activo</option>
+                              <option value="Finalizado" <?= ($contrato->getContrato_estado() == "Finalizado") ? "selected" : "" ?>>Finalizado</option>
                             </select>               
                           </div>
                         </div>

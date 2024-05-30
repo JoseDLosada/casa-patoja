@@ -3,6 +3,7 @@
 
 class Contrato{
 
+    //Atributos
     private $pdo;
 
     private $contrato_id;
@@ -15,6 +16,7 @@ class Contrato{
     private $contrato_estado;
 
 
+    //Getter y Setter
     public function __CONSTRUCT(){
         $this->pdo = BasedeDatos::Conectar();
     }
@@ -70,11 +72,17 @@ class Contrato{
         $this->contrato_estado = $contrato_estado;
     }
 
+
+
+    //Metodos
+
     public function Listar(){
         try{
             $consulta = $this->pdo->prepare("SELECT * FROM contratos");
             $consulta->execute();
             return $consulta->fetchAll(PDO::FETCH_OBJ);
+            //que hace un fetchAll? devuelve un array con todas las filas del resultado de la consulta
+            //que hace un fetch? devuelve la siguiente fila del resultado de la consulta
         }catch(Exception $e){
             die($e->getMessage());
         }

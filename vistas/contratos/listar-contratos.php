@@ -24,6 +24,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Cedula Arrendatario</th>
+                    <th>Propiedad</th>
                     <th>Numero Habitación</th>
                     <th>Costo Alquiler</th>
                     <th>Fecha Inicio</th>
@@ -36,6 +37,7 @@
                 <tr>
                     <td><?=$resultado->contrato_id?></td>
                     <td><?=$resultado->arrendatario_cedula?></td>
+                    <td><?=$resultado->propiedad_direccion?></td>
                     <td><?=$resultado->habitacion_numero?></td>
                     <td><?=$resultado->contrato_costo?></td>
                     <td><?=$resultado->contrato_fecha_inicio?></td>

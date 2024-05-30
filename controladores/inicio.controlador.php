@@ -48,7 +48,4 @@ class InicioControlador{
         require_once "vistas/pie.php";
     }
 
-    // public function FiltrarGasto(){
-    //     header('Location: ?fControlador=inicio&fAccion=FlujoCaja&mes='.$_GET['MES']);
-    // }
 }

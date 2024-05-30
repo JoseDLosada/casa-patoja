@@ -25,7 +25,7 @@
                         <legend>Actualizar Propiedad</legend>
 
                         <div class="form-group">
-                          <label  class="col-lg-2 control-label" for="pro_direccion"> Direccion </label>
+                          <label  class="col-lg-2 control-label" for="pro_direccion"> Dirección </label>
                           <div class="col-lg-10">
                             <input required class="form-control" name="pro_direccion" type="text" placeholder="Direccion" readonly value="<?=$propiedad->getPropiedad_direccion()?>">
                           </div>
@@ -39,14 +39,14 @@
 
                         </div>
                         <div class="form-group">
-                          <label class="col-lg-2 control-label" for="pro_habitaciones"> Numero de Habitaciones </label>
+                          <label class="col-lg-2 control-label" for="pro_habitaciones"> Número de Habitaciones </label>
                           <div class="col-lg-10">
                             <input required class="form-control" name="pro_habitaciones" type="number" placeholder="Numero de habitaciones" value="<?=$propiedad->getPropiedad_numero_habitaciones()?>">
                           </div>
                         </div>
 
                         <div class="form-group">
-                          <label class="col-lg-2 control-label" for="pro_descripcion"> Descripcion </label>
+                          <label class="col-lg-2 control-label" for="pro_descripcion"> Descripción </label>
                           <div class="col-lg-10">
 
                             <textarea class="form-control" name="pro_descripcion" rows="3" placeholder="Descripcion general de la propiedad."><?=$propiedad->getPropiedad_descripcion()?></textarea>

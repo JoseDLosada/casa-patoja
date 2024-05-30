@@ -69,7 +69,7 @@
                 <li><a href="?fControlador=empleado"><i class="fa fa-circle-o"></i> Empleados </a></li>
                 <li><a href="?fControlador=arrendatario"><i class="fa fa-circle-o"></i> Arrendatarios </a></li>
                 <li><a href="?fControlador=contrato"><i class="fa fa-circle-o"></i> Contratos de Alquiler </a></li>
-                <li><a href="?fControlador=nomina"><i class="fa fa-circle-o"></i> Pagos Nomina </a></li>
+                <li><a href="?fControlador=nomina"><i class="fa fa-circle-o"></i> Pagos Nómina </a></li>
                 <li><a href="?fControlador=gasto"><i class="fa fa-circle-o"></i> Gastos de la Propiedad </a></li>
                 <li><a href="?fControlador=ingreso"><i class="fa fa-circle-o"></i> Ingresos de la Propiedad </a></li>
               </ul>

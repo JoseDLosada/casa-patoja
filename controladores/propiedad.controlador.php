@@ -72,6 +72,7 @@ class PropiedadControlador{
          header('Location: ?fControlador=propiedad');
     }
 
+    
 //Construccion
     public function TestBuscar(){
         require_once 'vistas/encabezado.php';

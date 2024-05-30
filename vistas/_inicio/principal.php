@@ -1,4 +1,11 @@
 <div class="content-wrapper">
+  <?php
+    // Obtenemos el mes actual en español
+    setlocale(LC_TIME, 'es_ES.UTF-8');
+    $mesActual = date('F');
+    // Capitalizamos la primera letra
+    $mesActual = ucfirst($mesActual);
+  ?>
     <!-- Page Title -->
     <div class="page-title">
         <div>
@@ -76,7 +83,7 @@
                     <th>Total Habitaciones Registradas</th>
                     <th>Habitaciones Libres</th>
                     <th>Habitaciones Ocupadas</th>
-                    <th>Porcentaje Ocupacion</th>
+                    <th>Porcentaje Ocupación</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -118,7 +125,7 @@
             <!-- <div class="clearfix"></div> -->
           <div class="col-md-12">
             <div class="card">
-              <h3 class="card-title">Arrendatarios Pendientes de Pago: Mes Actual</h3>
+              <h3 class="card-title">Arrendatarios Pendientes de Pago: <?php echo $mesActual; ?></h3>
               <div class="table-responsive">
                 <table class="table">
                   <thead>
